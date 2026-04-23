@@ -5,21 +5,17 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "cliente")
-
-public class Cliente extends PanacheEntityBase {
+public class User extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    @Column(nullable = false)
-    private String nome;
-
     @Column(unique = true, nullable = false)
     private String cpf;
 
-    @Column(unique = true, nullable = false)
-    private String email;
+    @Column(nullable = false)
+    private String nome;
 
     @Column(nullable = false)
     private String senha;
@@ -28,35 +24,27 @@ public class Cliente extends PanacheEntityBase {
     @Column(nullable = false)
     private UserRole role;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(String username) {
         this.cpf = cpf;
     }
 
-    public String getEmail() {
-        return email;
+    public String getNome() {
+        return nome;
     }
 
-    public void setEmail(String cpf) {
-        this.email= email;
+    public void setNome(String name) {
+        this.nome = nome;
     }
 
     public String getSenha() {
         return senha;
     }
 
-    public void setSenha(String senha) {
+    public void setPassword(String password) {
         this.senha = senha;
     }
 
@@ -67,5 +55,4 @@ public class Cliente extends PanacheEntityBase {
     public void setRole(UserRole role) {
         this.role = role;
     }
-
 }
